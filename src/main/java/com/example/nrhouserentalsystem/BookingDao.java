@@ -13,14 +13,16 @@ import static java.lang.System.out;
 
 public class BookingDao {
 
-    String dbURL = "jdbc:postgresql://ec2-34-194-171-47.compute-1.amazonaws.com/dcb70s908sasfa"; //ni url dri heroku database
-    String user = "gpdkvocjaztxrw";
-    String pass = "dceb52b9fa471dce9048a701a0f88b7d4dee9e9ca420a48101baa31d0e68def5";
+    String dbURL = "jdbc:oracle:thin:@localhost:1521:XE"; //ni url dri heroku database
+    String user = "NRS";
+    String pass = "wana";
+
+
 
     protected Connection getConnection() {
         Connection connection = null;
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("oracle.jdbc.driver.OracleDriver");
             connection= DriverManager.getConnection(dbURL, user, pass);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
